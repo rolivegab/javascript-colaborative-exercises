@@ -1,12 +1,12 @@
 {
     "multiple": [{
-        "args": [2, 4],
-        "output": 6
+        "args": [3],
+        "console": "hidrocor\nhidrocor\nhidrocor\n"
     }, {
-        "args": [10, 15],
-        "output": 25
+        "args": [2],
+        "console": "hidrocor\nhidrocor\n"
     }, {
-        "args": [-10, 10],
-        "output": 0
+        "args": [5],
+        "console": "hidrocor\nhidrocor\nhidrocor\nhidrocor\nhidrocor\n"
     }]
 }

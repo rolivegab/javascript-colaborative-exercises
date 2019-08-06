@@ -1,5 +1,5 @@
 ### Exercício
-Faça uma mensagem de 'Olá Mundo'
+Escreva 'Olá Mundo' no console
 
 ### Saída esperada
 ```
