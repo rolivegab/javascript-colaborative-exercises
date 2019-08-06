@@ -3,6 +3,29 @@ import path from 'path'
 import {promisify} from 'util'
 import capcon from 'capture-console'
 
+const parse = (json, func) => {
+    const result = []
+    if (json.output) {
+        if (json.args) {
+            result.push(func(...json.args) === json.output)
+        } else {
+            result.push(func() === json.output)
+        }
+    }
+    if (json.console) {
+        var stdio = capcon.interceptStdout(function scope() {
+            if (json.args) {
+                func(...json.args)
+            } else {
+                func()
+            }
+        });
+        result.push(stdio === json.console)
+    }
+
+    return result.every(i => i === true)
+}
+
 const f = async () => {
     const question = Number(process.argv[2])
     const user = process.argv[3]
@@ -25,15 +48,18 @@ const f = async () => {
     const func = (await import(filePath)).default
     const json = (await import(jsonPath)).default
 
-    if (json.console) {
-        var stdio = capcon.interceptStdout(function scope() {
-            func()
-        });
-        if (stdio === json.console) {
-            console.log('OK!')
-        }
+    let result = []
+    if (json.multiple) {
+        json.multiple.forEach((i) => {
+            result.push(parse(i, func))
+        })
+    } else {
+        result.push(parse(json, func))
     }
-    
+
+    if (result.every(i => i === true)) {
+        console.log("OK!")
+    }
 }
 
 f()

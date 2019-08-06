@@ -1,0 +1,12 @@
+{
+    "multiple": [{
+        "args": [2, 4],
+        "output": 6
+    }, {
+        "args": [10, 15],
+        "output": 25
+    }, {
+        "args": [-10, 10],
+        "output": 0
+    }]
+}
