@@ -6,7 +6,15 @@
   "author": "Gabriel Rocha de Oliveira <rolivegab@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "capture-console": "^1.0.1",
     "ts-node": "^8.3.0",
     "typescript": "^3.5.3"
+  },
+  "devDependencies": {
+    "@types/capture-console": "^1.0.0",
+    "@types/node": "^12.6.9"
+  },
+  "scripts": {
+    "start": "ts-node src"
   }
 }
