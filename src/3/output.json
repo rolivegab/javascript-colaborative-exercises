@@ -1,0 +1,12 @@
+{
+    "multiple": [{
+        "jsdom": "Esse parágrafo é irado demais!",
+        "jsdomArgs": ["Esse parágrafo é irado demais!"]
+    }, {
+        "jsdom": "THATS GONNA HAPPENS MY BROHW",
+        "jsdomArgs": ["THATS GONNA HAPPENS MY BROHW"]
+    }, {
+        "jsdom": "Agora ponto",
+        "jsdomArgs": ["Agora ponto"]
+    }]
+}
