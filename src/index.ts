@@ -3,6 +3,7 @@ import path from 'path'
 import {promisify} from 'util'
 import capcon from 'capture-console'
 import { JSDOM } from 'jsdom';
+import {deepStrictEqual} from 'assert'
 
 interface JSON {
     args?: any[]
@@ -17,9 +18,19 @@ const parse = async (json: JSON, func: Function, questionDir: string) => {
     const result = []
     if (json.output) {
         if (json.args) {
-            result.push(func(...json.args) === json.output)
+            try {
+                deepStrictEqual(func(...json.args), json.output)
+                result.push(true)
+            } catch (e) {
+                return console.error(e)
+            }
         } else {
-            result.push(func() === json.output)
+            try {
+                deepStrictEqual(func(), json.output)
+                result.push()
+            } catch (e) {
+                return console.error(e)
+            }
         }
     }
     if (json.console) {

@@ -15,7 +15,7 @@ Ver o arquivo `index.html`, sua função deverá retornar o conteúdo da tag `p`
 </html>
 ```
 
-### Saída esperada
+### Retorno esperado
 ```
 HEHEHE!
 ```
